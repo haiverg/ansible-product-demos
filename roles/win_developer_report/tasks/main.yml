@@ -1,7 +1,6 @@
 ---
 - name: create HTML report
-  become: true
-  template:
+  win_template:
     src: win_report.j2
     dest: "{{ file_path }}\index.html"
   notify: restart www service  
