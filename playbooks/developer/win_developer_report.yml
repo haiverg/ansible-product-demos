@@ -1,0 +1,38 @@
+---
+- name: grab linux facts
+  hosts: control_nodes
+  gather_facts: true
+
+- name: grab Windows facts
+  hosts: windows
+  gather_facts: true
+
+- name: build developer report
+  hosts: student1-win1
+  gather_facts: false
+  
+  vars:
+    file_path: C:\Inetpub\wwwroot
+
+  tasks:
+
+    - name: Install IIS
+      win_feature:
+        name: Web-Server
+        state: present
+
+    - name: Start IIS service
+      win_service:
+        name: W3Svc
+        state: started
+
+    - name: use developer report
+      include_role:
+        name: "../../roles/win_developer_report"
+        
+  handlers:
+    - name: restart www service 
+      become: true
+      win_service:
+        name: W3Svc
+        state: restarted

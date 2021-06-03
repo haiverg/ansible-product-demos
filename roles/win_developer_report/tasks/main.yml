@@ -1,0 +1,11 @@
+---
+- name: create HTML report
+  become: true
+  template:
+    src: win_report.j2
+    dest: "{{ file_path }}\index.html"
+  notify: restart www service  
+    
+- name: DISPLAY LINK TO INVENTORY REPORT
+  debug:
+    msg: "Please go to http://{{ ansible_host }}"
