@@ -21,8 +21,6 @@
     - name: use developer report
       include_role:
         name: "../../roles/developer_report"
-      notify: 
-        restart httpd service
         
   handlers:
     - name: restart httpd service 

@@ -11,6 +11,7 @@
   template:
     src: report.j2
     dest: "{{ file_path }}/index.html"
+  notify: restart httpd service  
     
 - name: DISPLAY LINK TO INVENTORY REPORT
   debug:
