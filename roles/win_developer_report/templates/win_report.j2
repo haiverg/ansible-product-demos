@@ -52,7 +52,7 @@
         <tr>
             <td>{{ hostvars[win_node]['ansible_hostname'] }}</td>
             <td>{{ hostvars[win_node]['ansible_os_name'] }}</td>
-            <td>{{ hostvars[linux_node]['ansible_env']['PATH'] }}</td>
+            <td>{{ hostvars[win_node]['ansible_env']['PATH'] }}</td>
             <td>{{ hostvars[win_node]['ansible_system'] }} {{ hostvars[win_node]['ansible_kernel'] }}</td>
             <td>{{ hostvars[win_node]['ansible_powershell_version'] }}</td>
             <td>{{ hostvars[win_node]['ansible_date_time']['date'] }}</td>            
