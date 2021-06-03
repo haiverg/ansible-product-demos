@@ -2,7 +2,7 @@
 - name: create HTML report
   win_template:
     src: win_report.j2
-    dest: "{{ file_path }}\index.html"
+    dest: "{{ file_path }}"
   notify: restart www service  
     
 - name: DISPLAY LINK TO INVENTORY REPORT

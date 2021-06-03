@@ -12,7 +12,7 @@
   gather_facts: false
   
   vars:
-    file_path: C:\Inetpub\wwwroot
+    file_path: C:\Inetpub\wwwroot\index.html
 
   tasks:
 
