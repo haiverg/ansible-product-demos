@@ -11,6 +11,24 @@
     file_path: /var/www/html/report
 
   tasks:
+
+    - name: install web package
+      become: true
+      yum:
+        name: httpd
+        state: present
+
     - name: use developer report
       include_role:
         name: "../../roles/developer_report"
+      notify: 
+        restart httpd service
+        
+  handlers:
+    - name: restart httpd service 
+      become: true
+      service:
+        name: httpd
+        state: restarted
+
+

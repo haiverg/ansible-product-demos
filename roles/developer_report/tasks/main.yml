@@ -1,16 +1,10 @@
 ---
-- name: install web package
-  become: true
-  yum:
-    name: httpd
-    state: latest
-    
 - name: Create filepath directory
   become: true
   file: 
     path: "{{ file_path }}"
     state: directory
-    mode: '0755'
+    mode: 0755
 
 - name: create HTML report
   become: true
@@ -18,12 +12,6 @@
     src: report.j2
     dest: "{{ file_path }}/index.html"
     
-- name: restart service 
-  become: true
-  service:
-    name: httpd
-    state: restarted
-
 - name: DISPLAY LINK TO INVENTORY REPORT
   debug:
     msg: "Please go to http://{{ ansible_host }}/report"
